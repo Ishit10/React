@@ -32,8 +32,8 @@ function ProductCarousel() {
 
   return (
     <>
-      <div className="container text-bg-dark my-4 p-3">
-        <h1 className="text-center">Product Card</h1>
+      <div className="container-fuild text-bg-dark my-4 p-3">
+        <h1 className="text-center text-decoration-underline text-primary">Product Card</h1>
 
         {/* Carousel Controls */}
         <div className="d-flex justify-content-between align-items-center">
@@ -45,14 +45,14 @@ function ProductCarousel() {
         {/* Carousel Card */}
         <div className="carousel mt-4">
           {productData.length > 0 && (
-            <div className="card mx-auto" style={{ width: "18rem" }}>
+            <div className="card mx-auto bg-info" style={{ width: "18rem" }}>
               <img
                 src={productData[currentIndex].image}
                 className="card-img-top"
                 alt={productData[currentIndex].title}
                 style={{ height: "300px", objectFit: "contain" }}
               />
-              <div className="card-body">
+              <div className="card-body text-center">
                 <h5 className="card-title">
                   {productData[currentIndex].title.slice(0, 20)}
                 </h5>
@@ -63,14 +63,14 @@ function ProductCarousel() {
                   ${productData[currentIndex].price}
                 </p>
               </div>
-              <div className="card-footer">
+              <div className="card-footer bg-success text-center">
                 <button className="btn btn-primary">Buy Now</button>
               </div>
             </div>
           )}
         </div>
 
-        <button className="btn btn-primary" style={{ width: 100 }} onClick={handleNext}>
+        <button className="btn btn-primary" style={{ width: 100}} onClick={handleNext}>
             Next
           </button>
         </div>
