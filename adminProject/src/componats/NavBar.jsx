@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
+
 
 function NavBar() {
   return (
@@ -36,11 +37,11 @@ function NavBar() {
 
       <ul className="navbar-nav  px-5">
         <li className="nav-item">
-        <Link style={{textDecoration:"none" , color:"black"}} className='p-2' to={"/"}>Home</Link>
+        <Link style={{textDecoration:"none" , color:"black"}} className='p-2' to={"/admin-Dashboard"}>Admin-Dashboard</Link>
         </li>
         <li className="nav-item">
         
-        <Link style={{textDecoration:"none", color:"black"}} className='p-2' to={"/About"}>About</Link>
+        <Link style={{textDecoration:"none", color:"black"}} className='p-2' to={"/Dashboard"}>User-Dashboard</Link>
         </li>
         
         
