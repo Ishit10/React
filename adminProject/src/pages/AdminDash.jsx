@@ -5,11 +5,11 @@ import { useNavigate } from "react-router";
 function AdminDashboard() {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [editingUserId, setEditingUserId] = useState(null);
+  const [editingProductId, setEditingProductId] = useState(null);
   const navigate = useNavigate();
 
-  
+  // Fetch users and products data
   useEffect(() => {
     axios.get("http://localhost:3000/users").then((response) => setUsers(response.data));
     axios.get("http://localhost:3000/products").then((response) => setProducts(response.data));
@@ -20,14 +20,30 @@ function AdminDashboard() {
     navigate("/");
   };
 
+  
+  const updateUser = (id, updatedUser) => {
+    axios.put(`http://localhost:3000/users/${id}`, updatedUser).then(() => {
+      setUsers(users.map((user) => (user.id === id ? updatedUser : user)));
+      setEditingUserId(null);
+    });
+  };
 
+ 
+  const updateProduct = (id, updatedProduct) => {
+    axios.put(`http://localhost:3000/products/${id}`, updatedProduct).then(() => {
+      setProducts(products.map((product) => (product.id === id ? updatedProduct : product)));
+      setEditingProductId(null);
+    });
+  };
+
+  
   const deleteUser = (id) => {
     axios.delete(`http://localhost:3000/users/${id}`).then(() => {
       setUsers(users.filter((user) => user.id !== id));
     });
   };
 
-  
+
   const deleteProduct = (id) => {
     axios.delete(`http://localhost:3000/products/${id}`).then(() => {
       setProducts(products.filter((product) => product.id !== id));
@@ -36,7 +52,7 @@ function AdminDashboard() {
 
   return (
     <>
-     
+      
       <header className="bg-primary text-white py-4 shadow">
         <div className="container d-flex justify-content-between align-items-center">
           <h1 className="h3 mb-0">Admin Dashboard</h1>
@@ -46,7 +62,7 @@ function AdminDashboard() {
         </div>
       </header>
 
-      
+     
       <div className="container mt-5">
         <h2 className="mb-4">User Management</h2>
         <table className="table table-bordered table-striped">
@@ -59,27 +75,75 @@ function AdminDashboard() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>
-                  <button
-                    className="btn btn-warning btn-sm me-2"
-                    onClick={() => setSelectedUser(user)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="btn btn-danger btn-sm"
-                    onClick={() => deleteUser(user.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {users.map((user) =>
+              editingUserId === user.id ? (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>
+                    <input
+                      type="text"
+                      className="form-control"
+                      defaultValue={user.name}
+                      onChange={(e) =>
+                        setUsers(
+                          users.map((u) =>
+                            u.id === user.id ? { ...u, name: e.target.value } : u
+                          )
+                        )
+                      }
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="email"
+                      className="form-control"
+                      defaultValue={user.email}
+                      onChange={(e) =>
+                        setUsers(
+                          users.map((u) =>
+                            u.id === user.id ? { ...u, email: e.target.value } : u
+                          )
+                        )
+                      }
+                    />
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-primary btn-sm me-2"
+                      onClick={() => updateUser(user.id, user)}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className="btn btn-secondary btn-sm"
+                      onClick={() => setEditingUserId(null)}
+                    >
+                      Cancel
+                    </button>
+                  </td>
+                </tr>
+              ) : (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <button
+                      className="btn btn-warning btn-sm me-2"
+                      onClick={() => setEditingUserId(user.id)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => deleteUser(user.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
 
@@ -94,27 +158,75 @@ function AdminDashboard() {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
-              <tr key={product.id}>
-                <td>{product.id}</td>
-                <td>{product.title}</td>
-                <td>${product.price.toFixed(2)}</td>
-                <td>
-                  <button
-                    className="btn btn-warning btn-sm me-2"
-                    onClick={() => setSelectedProduct(product)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="btn btn-danger btn-sm"
-                    onClick={() => deleteProduct(product.id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {products.map((product) =>
+              editingProductId === product.id ? (
+                <tr key={product.id}>
+                  <td>{product.id}</td>
+                  <td>
+                    <input
+                      type="text"
+                      className="form-control"
+                      defaultValue={product.title}
+                      onChange={(e) =>
+                        setProducts(
+                          products.map((p) =>
+                            p.id === product.id ? { ...p, title: e.target.value } : p
+                          )
+                        )
+                      }
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="number"
+                      className="form-control"
+                      defaultValue={product.price}
+                      onChange={(e) =>
+                        setProducts(
+                          products.map((p) =>
+                            p.id === product.id ? { ...p, price: e.target.value } : p
+                          )
+                        )
+                      }
+                    />
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-primary btn-sm me-2"
+                      onClick={() => updateProduct(product.id, product)}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className="btn btn-secondary btn-sm"
+                      onClick={() => setEditingProductId(null)}
+                    >
+                      Cancel
+                    </button>
+                  </td>
+                </tr>
+              ) : (
+                <tr key={product.id}>
+                  <td>{product.id}</td>
+                  <td>{product.title}</td>
+                  <td>${product.price.toFixed(2)}</td>
+                  <td>
+                    <button
+                      className="btn btn-warning btn-sm me-2"
+                      onClick={() => setEditingProductId(product.id)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => deleteProduct(product.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>
@@ -125,134 +237,6 @@ function AdminDashboard() {
           <p className="mb-0">© 2024 Admin Dashboard. All rights reserved.</p>
         </div>
       </footer>
-
-      {/* Edit User Modal */}
-      {selectedUser && (
-        <div className="modal show d-block" tabIndex="-1">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Edit User</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setSelectedUser(null)}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <input
-                  type="text"
-                  className="form-control mb-3"
-                  value={selectedUser.name}
-                  onChange={(e) =>
-                    setSelectedUser({ ...selectedUser, name: e.target.value })
-                  }
-                />
-                <input
-                  type="email"
-                  className="form-control"
-                  value={selectedUser.email}
-                  onChange={(e) =>
-                    setSelectedUser({ ...selectedUser, email: e.target.value })
-                  }
-                />
-              </div>
-              <div className="modal-footer">
-                <button
-                  className="btn btn-secondary"
-                  onClick={() => setSelectedUser(null)}
-                >
-                  Close
-                </button>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    axios
-                      .put(
-                        `http://localhost:3000/users/${selectedUser.id}`,
-                        selectedUser
-                      )
-                      .then(() => {
-                        setUsers(
-                          users.map((u) =>
-                            u.id === selectedUser.id ? selectedUser : u
-                          )
-                        );
-                        setSelectedUser(null);
-                      });
-                  }}
-                >
-                  Save Changes
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      
-      {selectedProduct && (
-        <div className="modal show d-block" tabIndex="-1">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Edit Product</h5>
-                <button
-                  type="button"
-                  className="btn-close"
-                  onClick={() => setSelectedProduct(null)}
-                ></button>
-              </div>
-              <div className="modal-body">
-                <input
-                  type="text"
-                  className="form-control mb-3"
-                  value={selectedProduct.title}
-                  onChange={(e) =>
-                    setSelectedProduct({ ...selectedProduct, title: e.target.value })
-                  }
-                />
-                <input
-                  type="number"
-                  className="form-control"
-                  value={selectedProduct.price}
-                  onChange={(e) =>
-                    setSelectedProduct({ ...selectedProduct, price: e.target.value })
-                  }
-                />
-              </div>
-              <div className="modal-footer">
-                <button
-                  className="btn btn-secondary"
-                  onClick={() => setSelectedProduct(null)}
-                >
-                  Close
-                </button>
-                <button
-                  className="btn btn-primary"
-                  onClick={() => {
-                    axios
-                      .put(
-                        `http://localhost:3000/products/${selectedProduct.id}`,
-                        selectedProduct
-                      )
-                      .then(() => {
-                        setProducts(
-                          products.map((p) =>
-                            p.id === selectedProduct.id ? selectedProduct : p
-                          )
-                        );
-                        setSelectedProduct(null);
-                      });
-                  }}
-                >
-                  Save Changes
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

@@ -1,14 +1,6 @@
 {
   "users": [
     {
-      "id": "1",
-      "userName": "Admin User",
-      "email": "admin@example.com",
-      "password": "admin123",
-      "isAdmin": true,
-      "name": "Admin"
-    },
-    {
       "id": "118",
       "userName": "Ishit Patel",
       "email": "ishitkapupara0@gmail.com",
@@ -141,13 +133,6 @@
       "email": "user20@example.com",
       "password": "password20",
       "isAdmin": false
-    },
-    {
-      "id": "2071",
-      "userName": "Fpatel",
-      "email": "forampatel18@gmail.com",
-      "password": "Ishit18",
-      "name": "Foram patel"
     }
   ],
   "products": [
