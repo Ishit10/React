@@ -1,0 +1,130 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Ishit Kapupara",
+            "age": 23,
+            "gender": "Male"
+        },
+        {
+            "id": 2,
+            "name": "Priyen Vaghasiya",
+            "age": 21,
+            "gender": "Male"
+        },
+        {
+            "id": 3,
+            "name": "Ayush Murani",
+            "age": 22,
+            "gender": "Male"
+        },
+        {
+            "id": 4,
+            "name": "Ayush Kapupara",
+            "age": 25,
+            "gender": "Male"
+        },
+        {
+            "id": 5,
+            "name": "Avadh Rupapara",
+            "age": 22,
+            "gender": "Male"
+        },
+        {
+            "id": 6,
+            "name": "Foram Patel",
+            "age": 22,
+            "gender": "Female"
+        },
+        {
+            "id": 7,
+            "name": "happy patel",
+            "age": 23,
+            "gender": "Female"
+        },
+        {
+            "id": 8,
+            "name": "om patel",
+            "age": 21,
+            "gender": "Male"
+        },
+        {
+            "id": 9,
+            "name": "prakash ahir",
+            "age": 22,
+            "gender": "Male"
+        },
+        {
+            "id": 10,
+            "name": "Aashtha Kapupara",
+            "age": 25,
+            "gender": "Female"
+        },
+        {
+            "id": 11,
+            "name": "Bhargavi Kapupara",
+            "age": 22,
+            "gender": "Female"
+        },
+        {
+            "id": 12,
+            "name": "Chirag Ahir",
+            "age": 22,
+            "gender": "Male"
+        },
+        {
+            "id": 13,
+            "name": "Aarav Patel",
+            "age": 28,
+            "gender": "Male"
+        },
+        {
+            "id": 14,
+            "name": "Vivaan Sharma",
+            "age": 32,
+            "gender": "Male"
+        },
+        {
+            "id": 15,
+            "name": "Vihaan Mehta",
+            "age": 27,
+            "gender": "Male"
+        },
+        {
+            "id": 16,
+            "name": "Arjun Gupta",
+            "age": 29,
+            "gender": "Male"
+        },
+        {
+            "id": 17,
+            "name": "Krishna Iyer",
+            "age": 34,
+            "gender": "Female"
+        },
+        {
+            "id": 18,
+            "name": "Aditi Singh",
+            "age": 26,
+            "gender": "Female"
+        },
+        {
+            "id": 19,
+            "name": "Kabir Das",
+            "age": 30,
+            "gender": "Male"
+        },
+        {
+            "id": 20,
+            "name": "Rohan Kapoor",
+            "age": 31,
+            "gender": "Male"
+        },
+        {
+            "id": 21,
+            "name": "hinal Joshi",
+            "age": 33,
+            "gender": "Female"
+        }
+    ]
+}
