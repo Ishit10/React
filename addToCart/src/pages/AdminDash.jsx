@@ -9,7 +9,7 @@ function AdminDashboard() {
   const [editingProductId, setEditingProductId] = useState(null);
   const navigate = useNavigate();
 
-  // Fetch users and products data
+  
   useEffect(() => {
     axios.get("http://localhost:3000/users").then((response) => setUsers(response.data));
     axios.get("http://localhost:3000/products").then((response) => setProducts(response.data));
@@ -59,7 +59,7 @@ function AdminDashboard() {
 
       <div className="container mt-5">
         <div className="row">
-          {/* User Management Section */}
+          
           <div className="col-lg-6">
             <div className="card shadow-sm mb-4">
               <div className="card-header bg-primary text-white">
@@ -151,7 +151,7 @@ function AdminDashboard() {
             </div>
           </div>
 
-          {/* Product Management Section */}
+      
           <div className="col-lg-6">
             <div className="card shadow-sm mb-4">
               <div className="card-header bg-success text-white">

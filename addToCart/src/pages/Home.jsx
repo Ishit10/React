@@ -8,7 +8,7 @@ function Home() {
   const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
-  // Fetch products from API
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/products")
@@ -20,7 +20,7 @@ function Home() {
       });
   }, []);
 
-  // Simplified addToCart logic
+  
   const addToCart = (product) => {
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
     const existingProduct = existingCart.find((item) => item.id === product.id);
@@ -48,7 +48,7 @@ function Home() {
 
   return (
     <>
-      {/* Navbar */}
+      
       <header className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container">
           <Link to="/" className="navbar-brand">
@@ -90,7 +90,6 @@ function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
       <section className="bg-light py-5">
         <div className="container text-center">
           <h2 className="display-4 fw-bold mb-3">Welcome to ShopEase</h2>
@@ -103,7 +102,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Product List */}
+   
       <main className="container mt-5">
         <h2 className="text-center text-uppercase mb-4">Explore Our Products</h2>
         <div className="row g-4">
@@ -136,7 +135,7 @@ function Home() {
 
       
 
-      {/* Footer */}
+   
       <footer className="bg-dark text-white py-3 mt-5">
         <div className="container text-center">
           <p className="mb-0">© 2024 ShopEase. All rights reserved.</p>

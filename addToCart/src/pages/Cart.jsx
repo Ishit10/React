@@ -30,8 +30,8 @@ function Cart() {
 
   const handleCheckout = () => {
     alert("Thank you for your purchase!");
-    setCart([]); // Clear cart after checkout
-    navigate("/"); // Redirect to home or another page
+    setCart([]); 
+    navigate("/"); 
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function Cart() {
       <h1 className="mb-4 text-center">Your Cart</h1>
       {cart.length > 0 ? (
         <div className="row">
-          {/* Cart Table Section */}
+          
           <div className="col-lg-8">
             <div className="card shadow-sm mb-4">
               <div className="card-body">
@@ -92,7 +92,7 @@ function Cart() {
             </div>
           </div>
 
-          {/* Checkout Section */}
+          
           <div className="col-lg-4">
             <div className="card shadow-sm">
               <div className="card-body">
