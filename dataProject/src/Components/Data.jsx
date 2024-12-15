@@ -2,48 +2,46 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function Data() {
-  const [data, setData] = useState([]);
+  const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
+  const [sortKey, setSortKey] = useState("");
 
+  
   useEffect(() => {
     axios
       .get("http://localhost:3000/users")
-      .then((response) => setData(response.data))
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setData([]);
-      });
+      .then((response) => setUsers(response.data))
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  const sortData = (key) => {
-    let direction = "ascending";
-    if (sortConfig.key === key && sortConfig.direction === "ascending") {
-      direction = "descending";
-    }
-    setSortConfig({ key, direction });
-
-    const sortedData = [...data].sort((a, b) => {
-      if (a[key] < b[key]) return direction === "ascending" ? -1 : 1;
-      if (a[key] > b[key]) return direction === "ascending" ? 1 : -1;
+  
+  const handleSort = (key) => {
+    const sorted = [...users].sort((a, b) => {
+      if (a[key] < b[key]) return -1;
+      if (a[key] > b[key]) return 1;
       return 0;
     });
-    setData(sortedData);
+    setUsers(sorted);
+    setSortKey(key);
   };
 
-  const filteredData = data
-    .filter((item) => filter === "All" || item.gender === filter)
-    .filter((item) => item.name?.toLowerCase().includes(search.toLowerCase()));
+  
+  const filteredUsers = users.filter((user) => {
+    const matchesFilter = filter === "All" || user.gender === filter;
+    const matchesSearch = user.name.toLowerCase().includes(search.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
 
   return (
     <div className="container my-5">
-      <h1 className="text-center mb-4">Men & Women Database</h1>
-      <div className="d-flex mb-4">
+      <h1 className="text-center">User Database</h1>
+
+      <div className="mb-4 d-flex">
         <input
           type="text"
-          className="form-control me-3"
-          placeholder="Search by name..."
+          placeholder="Search by name"
+          className="form-control me-2"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -57,18 +55,19 @@ function Data() {
           <option value="Female">Female</option>
         </select>
       </div>
-      <table className="table table-bordered">
+
+      <table className="table table-striped">
         <thead>
           <tr>
-            <th onClick={() => sortData("id")}>ID</th>
-            <th onClick={() => sortData("name")}>Name</th>
-            <th onClick={() => sortData("age")}>Age</th>
-            <th onClick={() => sortData("gender")}>Gender</th>
+            <th onClick={() => handleSort("id")}>ID</th>
+            <th onClick={() => handleSort("name")}>Name</th>
+            <th onClick={() => handleSort("age")}>Age</th>
+            <th onClick={() => handleSort("gender")}>Gender</th>
           </tr>
         </thead>
         <tbody>
-          {filteredData.length > 0 ? (
-            filteredData.map((user) => (
+          {filteredUsers.length > 0 ? (
+            filteredUsers.map((user) => (
               <tr key={user.id}>
                 <td>{user.id}</td>
                 <td>{user.name}</td>
@@ -79,7 +78,7 @@ function Data() {
           ) : (
             <tr>
               <td colSpan="4" className="text-center">
-                No data found
+                No users found
               </td>
             </tr>
           )}
