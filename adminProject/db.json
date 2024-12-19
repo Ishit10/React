@@ -9,11 +9,9 @@
       "name": "ishit patel"
     },
     {
-      "id": "3",
       "name": "User 3",
-      "email": "user3@example.com",
-      "password": "password3",
-      "isAdmin": false
+      "email": "us3@example.com",
+      "id": "3"
     },
     {
       "id": "4",
