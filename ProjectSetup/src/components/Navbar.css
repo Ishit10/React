@@ -1,0 +1,129 @@
+.custom-navbar {
+    transition: background-color 0.3s ease-in-out;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .custom-navbar:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .navbar-toggler {
+    border: none;
+    transition: transform 0.3s ease;
+  }
+
+  .custom-navbar {
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+  }
+  
+  .custom-link {
+    color: #007bff;
+    transition: color 0.3s ease;
+  }
+  
+  .custom-link:hover {
+    color: #0056b3;
+  }
+  
+  .dropdown-menu {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-outline-success {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-outline-success:hover {
+    background-color: #28a745;
+    color: #ffffff;
+  }
+  
+  
+  .navbar-toggler-icon {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .navbar-toggler.collapsed .navbar-toggler-icon {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  
+  .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    transform: rotate(90deg);
+    opacity: 0.7;
+  }
+  
+  .navbar-nav {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .custom-link {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .custom-link:hover {
+    color: #007bff;
+    transform: scale(1.1);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .navbar-nav {
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-top: 1px solid #ddd;
+      animation: slideIn 0.5s ease-in-out forwards;
+    }
+  
+    .navbar-nav li {
+      padding: 10px 20px;
+      text-align: center;
+    }
+  
+    .navbar-nav .nav-item {
+      animation: fadeIn 0.5s ease-in-out;
+      opacity: 0;
+      animation-delay: 0.2s;
+    }
+  
+    .navbar-nav .nav-item:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+  
+    .navbar-nav .nav-item:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  
+    .navbar-nav .nav-item:nth-child(4) {
+      animation-delay: 0.5s;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      top: 110%;
+      opacity: 0;
+    }
+    to {
+      top: 100%;
+      opacity: 1;
+    }
+  }
+  

@@ -1,0 +1,148 @@
+{
+  "users": [
+    {
+      "id": 1556,
+      "username": "admin",
+      "password": "admin123"
+    },
+    {
+      "id": "63b4",
+      "userName": "Ishit",
+      "email": "kapuparaishit@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Room 1",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH2205349972186/QS1042/QS1042-Q1/IMG-20200222-WA0006.jpg",
+      "type": "Single",
+      "price": 100,
+      "description": "A cozy room for two person."
+    },
+    {
+      "id": 2,
+      "name": "Room 2",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH70190337079394/QS1042/QS1042-Q1/370330089498122.jpeg",
+      "type": "Double",
+      "price": 85,
+      "description": "A spacious room for two people."
+    },
+    {
+      "id": 3,
+      "name": "Room 3",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH78109325502628/QS1042/QS1042-Q1/1000239020.jpg",
+      "type": "Single",
+      "price": 65,
+      "description": "A cozy room for two person."
+    },
+    {
+      "id": 4,
+      "name": "Room 4",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH74222327811870/QS1042/QS1042-Q1/IMG20240530161532.jpg",
+      "type": "Double",
+      "price": 95,
+      "description": "A cozy room for two person."
+    },
+    {
+      "id": 5,
+      "name": "Room 5",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH78015315457916/QS1042/QS1042-Q1/IMG_20240328_140259.jpg",
+      "type": "Single",
+      "price": 59,
+      "description": "A cozy room for two person."
+    },
+    {
+      "id": 6,
+      "name": "Room 6",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH7501390658600/QS1042/QS1042-Q1/1639453211589.jpeg",
+      "type": "Double",
+      "price": 111,
+      "description": "A cozy room for one person."
+    },
+    {
+      "id": 7,
+      "name": "Room 7",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH2224781629262/QS1047/QS1047-Q1/IMG_20211006_135731.jpg",
+      "type": "Single",
+      "price": 50,
+      "description": "A cozy room for two person."
+    },
+    {
+      "id": 8,
+      "name": "Room 8",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/room-imgs/201909041602327140-308856-697429cc0c3911eaa93c0242ac110004.jpg",
+      "type": "Double",
+      "price": 80,
+      "description": "A cozy room for one person."
+    },
+    {
+      "id": 9,
+      "name": "Room 9",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/room-imgs/201909041602327140-1616816-59e844960c4511ea97ad0242ac110003.jpg",
+      "type": "Double",
+      "price": 99,
+      "description": "A cozy room for one person."
+    },
+    {
+      "id": 10,
+      "name": "Room 10",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/room-imgs/201909041602327140-1616816-66d5b6fc0c4511ea95e80242ac110006.jpg",
+      "type": "Double",
+      "price": 85,
+      "description": "A cozy room for one person."
+    },
+    {
+      "id": 11,
+      "name": "Room 12",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201909041602327140-16714aee0c5111eabc250242ac110004.jpg",
+      "type": "Double",
+      "price": 75,
+      "description": "A cozy room for one person."
+    },
+    {
+      "id": 12,
+      "name": "Room 12",
+      "imageUrl": "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/room-imgs/201909041602327140-1616816-59e844960c4511ea97ad0242ac110003.jpg",
+      "type": "Double",
+      "price": 65,
+      "description": "A cozy room for one person."
+    }
+  ],
+  "reservations": [
+    {
+      "id": "60a1",
+      "name": "ishit kapupara",
+      "email": "kapuparaishit18@gmail.com",
+      "roomId": 1,
+      "roomName": "Room 1",
+      "roomType": "Single",
+      "price": 100,
+      "checkInDate": "2025-02-02",
+      "checkOutDate": "2025-02-03"
+    },
+    {
+      "id": "6e86",
+      "name": "",
+      "email": "",
+      "roomId": 2,
+      "roomName": "Room 2",
+      "roomType": "Double",
+      "price": 85,
+      "checkInDate": "",
+      "checkOutDate": ""
+    },
+    {
+      "id": "b267",
+      "name": "ishit",
+      "email": "kapuparaishit18@gmail.com",
+      "roomId": 3,
+      "roomName": "Room 3",
+      "roomType": "Single",
+      "price": 65,
+      "checkInDate": "2025-01-01",
+      "checkOutDate": "2025-01-04"
+    }
+  ]
+}
